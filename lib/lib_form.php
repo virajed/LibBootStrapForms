@@ -1,5 +1,47 @@
 <?php
 
+
+/*
+$class : glyphicon glyphicon-search , glyphicon glyphicon-print etc
+$other : disabled
+*/
+function form_glyphicon_button($id,$label,$type='text',$class='',$text='',$other='')
+{
+	echo '<div class="input-group">';
+
+	echo '<div class="input-group-btn">';
+
+	echo '<button id="'.$id.'" type="'.$type.'" class="btn btn-info" name="'.$id.'">';
+
+	echo '<span class="'.$class.'"></span>'. $label;
+    
+    echo '</button>';
+
+  	echo '</div>';
+
+  	echo '</div>';
+}
+
+/*
+$class : glyphicon glyphicon-user , glyphicon glyphicon-lock etc
+$other : disabled
+*/
+function form_glyphicon_input($id,$label,$type='text',$class='',$text='',$other='')
+{
+	echo '<div class="input-group">';
+	if($class!='')
+	{
+		echo '<span class="input-group-addon"><i class="'.$class.'"></i></span>';//
+	}
+	else{
+		echo '<span class="input-group-addon">'.$text.'</span>';
+	}
+ 	
+    
+    echo '<input id="'.$id.'" type="'.$type.'" class="form-control" name="'.$id.'" placeholder="'.$label.'" '.$other.'>';
+  	echo '</div>';
+}
+
 function form_create($class='', $id='',$method='',$act='',$other='')
 {
 	if($class=='form-horizontal')
@@ -12,16 +54,14 @@ function form_create($class='', $id='',$method='',$act='',$other='')
 	}
 	else{
 		echo '<form id="'.$id.'" name="'.$id.'" method="'.$method.'" action="'.$act.'" class="'.$class.'">';
-	}
-	
+	}	
 }
-
 
 function form_close()
 {
-?>
-	</form>
-<?php
+		?>
+			</form>
+		<?php
 }
 
 function form_checkbox($id,$label='Remember me',$class='checkbox',$other='')
@@ -81,7 +121,6 @@ function form_select($id,$label,$opt,$form='vertical',$class='',$other='')
 	<?php
 	}
 }
-
 
 function form_textarea($id,$label,$form='vertical',$class='',$other='')
 {
